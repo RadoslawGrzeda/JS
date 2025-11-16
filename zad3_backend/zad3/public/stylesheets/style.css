@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    color: #333333;
+    background-color: lightgray;
+}
+span {
+    font-size: 17px;
+    color: red;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: dark;
+    text-decoration: underline;
+}
+div
+{
+    margin: 12px;
+}
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: dark;
+    margin-right: 12px;
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+
+}
+input {
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+    border-color: black;
+}
+input.error {
+    border-color:red ;
+}
