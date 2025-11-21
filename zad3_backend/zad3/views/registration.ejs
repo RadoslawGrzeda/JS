@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='style.css' />
+  </head>
+  <body>
+    <body>
+    <h1> Registration </h1>
+
+<form action="/registration" method="post" name ="RegistrationForm" novalidate id="RegistrationForm" > 
+    <span id="SuccessMessage" style="color:green;"> <%=locals.successMessage || "" %></span>
+    <div>
+        <label for ="Username">Username:</label>
+        <input type="text" name="Username"  placeholder="Enter your username">
+        <span id="usernameError" style="color:red;"> <%= locals.usernameError || "" %></span>
+        
+    </div>
+    
+    <div>
+        <label for ="Email">Email:</label> 
+        <input type="email"  name="Email" novalidate placeholder="example@email.com">
+        <span id="emailError" style="color:red;"> <%= locals.emailError || "" %></span>
+      </div>
+      
+      <div>
+        <label for ="Password">Password:</label>
+        <input type="password" name="Password" placeholder="Enter your password">
+        <span id="passwordError" style="color:red;"> <%= locals.passwordError || "" %></span>
+      </div>
+      
+      <div>
+        <label for ="ConfirmPassword">Password:</label>
+        <input type='password' name="ConfirmPassword" placeholder="Enter your password again">
+        <span id="passwordError" style="color:red;"> <%= locals.passwordConfirmError || "" %></span>
+    </div>
+    <div>
+    <input type="submit" id ='submit'value="Submit">
+    <script src ="script.js"></script>
+    </div>
+</form>
+</body>
+
+  </body>
+</html>
