@@ -8,6 +8,7 @@ const usernameError = document.getElementById("usernameError");
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
+const success= document.getElementById("SuccessMessage");
 
 form.addEventListener('submit', async e =>{   
     e.preventDefault()
@@ -43,17 +44,29 @@ var object = {
     body:JSON.stringify(object)
 });
 var res = await response.json();
+if (response.status===200)
+success.innerHTML='Successfull registration'
+
+if(res.error){
 if(res.error.username){
 usernameError.innerHTML=res.error.username;
 }
-
 if(res.error.email){
 emailError.innerHTML=res.error.email;
 }
+if(res.error.password){
+passwordError.innerHTML=res.error.password;
+}
+if(res.error.confirmPassword){
+confirmPasswordError.innerHTML=res.error.confirmPassword;
+}
+console.log(res.status);
+
+} }
+
 // console.log(res.error.email);
 
 
-}
 
 // console.log('Its working fin2e')
     // console.log(user)
