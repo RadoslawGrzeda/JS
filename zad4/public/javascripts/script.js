@@ -10,6 +10,7 @@ const passwordError = document.getElementById("passwordError");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
 const success= document.getElementById("SuccessMessage");
 
+
 form.addEventListener('submit', async e =>{   
     e.preventDefault()
     resetSpan()
@@ -62,7 +63,24 @@ confirmPasswordError.innerHTML=res.error.confirmPassword;
 }
 console.log(res.status);
 
-} }
+} 
+const usersResponse = await fetch('/users',{
+    method:"GET",
+    headers:{
+        "Content-type":"application/json"
+    }
+});
+var usersRes = await usersResponse.json();
+const userList=document.getElementById("userList");
+userList.innerHTML='';
+for(let i=0;i<usersRes.length;i++){
+    const li=document.createElement("li");
+    li.innerText=`${usersRes[i].counter}. Username: ${usersRes[i].username}, Email: ${usersRes[i].email}`;
+    userList.appendChild(li);
+}
+console.log(usersRes);
+}
+
 
 // console.log(res.error.email);
 
