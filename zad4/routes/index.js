@@ -1,12 +1,9 @@
 const { error } = require('console');
 var express = require('express');
 var path = require('path');
-// const { use } = require('react');
 var router = express.Router();
 
 var registeredUsers=[];
-var counter =1;
-// Serve the static index.html for root route
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public/static/index.html'));
 });
@@ -15,12 +12,8 @@ router.get('/users', function(req, res ) {
   res.json(registeredUsers);
 });
 
-
 router.post('/register', function(req, res ) {
 const {username,email,password,confirmPassword}=req.body
-// usr=username.value
-// console.log(usr)
-// console.log(username)
 
 var error={}
 if(!validateEmail(email))
@@ -36,20 +29,11 @@ if(pass!==true)
 var confirmPass=validateAgainPassword(confirmPassword,password)
 if(confirmPass!==true)
   error.confirmPassword=confirmPass
-// const validatePassResult=validatePassword(password)
-// console.log(validatePassResult)
-// console.log(validatePassResult)
-// if(!validatePassResult(password))
-// error.password=validatePassResult
-// console.log(validatePassResult)
-// var validateConfirmPassResult=validateAgainPassword(confirmPassword)
-// if(!validateConfirmPassResult)
-// error.confirmPassword=validateConfirmPassResult
+
 
 if(Object.keys(error).length===0){
   res.status(200).json({message:'Registration successful!'})
-  registeredUsers.push({counter, username,email});
-  counter++;
+  registeredUsers.push({username,email});
 }
   else{
   res.status(400).json({error});
